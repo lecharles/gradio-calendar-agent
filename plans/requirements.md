@@ -110,6 +110,14 @@ The application will:
 ### 4.6 Error Handling (High)
 - FR-12: The system shall display clear error messages in the chat for any failed actions (API errors, permission issues, etc.).
 
+### 4.7 LLM Integration (High)
+- FR-13: The system shall integrate directly with OpenAI's API for natural language understanding and generation.
+- FR-14: The system shall maintain conversation context across multiple turns.
+- FR-15: The system shall allow fluid conversation while maintaining state for calendar operations.
+- FR-16: The system shall support future integration with other LLM providers if needed.
+- FR-17: The system shall handle natural language requests for calendar modifications.
+- FR-18: The system shall understand and respond to email customization requests in natural language.
+
 ---
 
 ## 5. Non-Functional Requirements
@@ -149,14 +157,22 @@ The application will:
 ### 5.10 Legal and Compliance
 - NFR-15: The system shall comply with Google API terms and privacy best practices.
 
+### 5.11 LLM Integration Requirements
+- NFR-16: The system shall respond to user queries within 2 seconds.
+- NFR-17: The system shall maintain conversation history for context.
+- NFR-18: The system shall securely handle API keys for LLM services.
+- NFR-19: The system shall gracefully handle API rate limits and errors.
+- NFR-20: The system shall provide clear feedback when switching between conversation and action modes.
+
 ---
 
 ## 6. Technical Requirements
-- Python 3.9+
+- Python 3.11+
 - Gradio (chatbot component)
-- OpenAI Agents SDK
+- OpenAI API (GPT-4)
 - Google Calendar API
 - Gmail API
+- Environment variables for API key management
 - Runs on Mac, Windows, Linux (browser-based)
 
 ---
@@ -230,3 +246,19 @@ The application will:
 
 # /plans/requirements.md
 (Place this file in the /plans directory) 
+
+## 7. LLM Integration
+- [ ] Set up LLM integration infrastructure
+  - [ ] Install OpenAI package
+  - [ ] Create secure environment variable handling for API keys
+  - [ ] Implement conversation state management
+- [ ] Implement LLM-powered chat interface
+  - [ ] Create conversation memory system using native Python structures
+  - [ ] Implement prompt templates for different actions
+  - [ ] Add natural language understanding for calendar operations
+  - [ ] Add natural language understanding for email customization
+- [ ] Testing LLM integration
+  - [ ] Create test suite for conversation flows
+  - [ ] Test state management during conversations
+  - [ ] Test calendar operation understanding
+  - [ ] Test email customization understanding 

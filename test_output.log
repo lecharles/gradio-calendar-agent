@@ -1,0 +1,9 @@
+Starting test script...
+Current directory: /Users/carlos.lozano/Documents/Product/VSCode/gradio-agents
+Environment variables loaded
+Creating calendar tool...
+Calendar tool created
+Testing calendar authentication...
+credentials.json exists: True
+Authentication result: True
+Calendar authentication test completed successfully
