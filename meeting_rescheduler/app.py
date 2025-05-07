@@ -33,21 +33,25 @@ def connect_calendar():
         if calendar_tool.authenticate():
             is_connected = True
             status_msg = "✅ Successfully connected to Google Calendar!"
+            chatbot_msg = status_msg
             # Try to get upcoming events as a test
             try:
                 _, events = calendar_tool.get_upcoming_events_count(7)
                 if events:
-                    status_msg += "\n\nFound your calendar! Here are your upcoming meetings:\n\n"
-                    status_msg += format_events_message(events)
+                    chatbot_msg += "\n\nFound your calendar! Here are your upcoming meetings:\n\n"
+                    chatbot_msg += format_events_message(events)
             except Exception as e:
                 print(f"Error getting initial events: {e}")
-            return status_msg
-        return "❌ Failed to connect to Google Calendar. Please check your credentials."
+            return status_msg, chatbot_msg
+        error_msg = "❌ Failed to connect to Google Calendar. Please check your credentials."
+        return error_msg, error_msg
     except Exception as e:
         error_msg = str(e)
         if "credentials.json" in error_msg:
-            return "❌ Error: credentials.json not found. Please ensure you have your Google OAuth credentials file."
-        return f"❌ Error connecting to calendar: {error_msg}"
+            error_msg = "❌ Error: credentials.json not found. Please ensure you have your Google OAuth credentials file."
+        else:
+            error_msg = f"❌ Error connecting to calendar: {error_msg}"
+        return error_msg, error_msg
 
 def get_events_for_range(start_date: str, end_date: str) -> str:
     """Get events for a specific date range."""

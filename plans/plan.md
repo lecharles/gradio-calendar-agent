@@ -1,11 +1,17 @@
 # Implementation Plan — Meeting Rescheduler Agent
 
+## Codebase Reorganization [May 2024]
+- The codebase has been reorganized: all non-meeting-rescheduler agent experiments and tryouts have been moved to `other-agent-tryouts/` at the project root.
+- The `meeting_rescheduler/` directory now contains only the core meeting rescheduler agent code and dependencies.
+- This cleanup makes the codebase easier to maintain, test, and extend for the meeting rescheduler use case.
+
 ## Quick Status & Next Steps (as of May 6, 2024)
 - **App is running and public repo is live.**
 - **Google Calendar connect button is fully functional and authenticates via OAuth.**
 - **Port conflict resolved (7860 everywhere).**
 - **Sensitive files are removed from git history and .gitignore is set.**
 - **UI is stable and ready for user testing.**
+- **Codebase is now focused solely on the meeting rescheduler agent.**
 
 ### Immediate Priorities for Tomorrow
 - [ ] Add Calendar View component for visual date selection (gr.DatePicker)
@@ -28,6 +34,7 @@
 - Google OAuth integration confirmed with credentials.json in project root
 - Cleaned up and standardized on gradio_venv for all development
 - Ready for public release as gradio-calendar-agent on GitHub
+- **Codebase reorganized: only meeting rescheduler agent code remains in main package.**
 
 ## Current Status Update [UPDATED]
 Last Updated: May 6, 2024
@@ -36,6 +43,7 @@ Last Updated: May 6, 2024
 - [x] Port Conflict resolved (standardized to 7860)
 - [x] UI: Calendar connect button now visible and functional
 - [x] Verified proper component rendering and feedback
+- [x] Codebase is now focused on the meeting rescheduler agent only
 
 ### Completed Items ✅
 1. Project Setup
